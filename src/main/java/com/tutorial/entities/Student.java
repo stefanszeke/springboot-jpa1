@@ -20,14 +20,14 @@ public class Student {
     @Column(name = "email") // This is optional, because the column name is the same as the field name
     private String email;
 
-    public Student() {} // This is a default constructor, it is required by Hibernate
+    // public Student() {} // This is a default constructor, it is required by Hibernate
 
-    public Student(Long id, String firstName, String lastName, String email) {
-        this.id = id;
-        this.firstName = firstName;
-        this.lastName = lastName;
-        this.email = email;
-    }
+    // public Student(Long id, String firstName, String lastName, String email) {
+    //     this.id = id;
+    //     this.firstName = firstName;
+    //     this.lastName = lastName;
+    //     this.email = email;
+    // }
 
     // getters and setters:
     public Long getId() { return id;}
