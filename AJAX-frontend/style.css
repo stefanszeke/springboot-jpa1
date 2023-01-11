@@ -1,0 +1,110 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+body {
+    font-family: 'Roboto', sans-serif;
+    font-size: 0.8rem;
+}
+
+button {
+    padding: 4px 6px;
+    border: none;
+    border-radius: 5px;
+    background-color: rgb(74, 81, 95);
+    color: white;
+    cursor: pointer;
+    transition: 60ms;
+}
+
+button:hover {
+    filter: brightness(1.1);
+    transform: scale(1.02);
+}
+
+.wrapper {
+    display: grid;
+    grid-auto-flow: column;
+    justify-content: center;
+    gap: 10px;
+}
+
+.column {
+    min-width: 350px;
+}
+
+
+
+table {
+    margin: 0 auto;
+}
+
+table td,table th {
+    padding: 5px;
+    border: 1px solid #000;
+}
+
+.container {
+    width: 100%;
+    max-width: 500px;
+    margin: 20px auto;
+    box-shadow: 0px 0px 3px 0px rgb(59, 59, 59);
+    border-radius: 8px;
+    padding: 10px;
+    min-height: 50px;
+}
+
+.getById {
+    min-height: 130px;
+}
+
+.message-box {
+    display: grid;
+    place-items: center;
+}
+
+.form-row {
+    display: grid;
+    grid-template-columns: 30% 50%;
+    gap: 10px;
+    margin-bottom: 2px;
+    text-align: right;
+}
+
+.td-id {
+    cursor: pointer;
+}
+
+.td-id:hover {
+    background-color: rgb(50, 50, 50);
+    color: white;
+}
+
+
+.title {
+    margin-bottom: 10px;
+    top: 5px;
+    left: 10px;
+    font-size: 0.9rem;
+    color: rgb(79, 79, 79);
+}
+
+#input-id {
+    display: grid;
+    grid-template-columns: 20px 90px;
+    gap: 5px;
+}
+
+#patch-id {
+    text-align: start;
+}
+
+.red-message {
+    background-color: rgb(197, 78, 78);
+    color: white;
+    padding: 0 10px;
+    border-radius: 6px;
+}

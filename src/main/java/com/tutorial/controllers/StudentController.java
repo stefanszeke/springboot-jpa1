@@ -3,6 +3,7 @@ package com.tutorial.controllers;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PatchMapping;
@@ -16,7 +17,8 @@ import com.tutorial.entities.Student;
 import com.tutorial.services.StudentService;
 import org.springframework.web.bind.annotation.PutMapping;
 
-
+// @CrossOrigin(origins = "http://localhost:5500") // This is a cross origin request, it is used to allow requests from the client to the server
+@CrossOrigin(origins = "*", allowedHeaders = "*") 
 @RestController
 @RequestMapping("/api/v1/students")
 public class StudentController { // This is a controller, controllers are used to handle requests from the client
@@ -24,7 +26,7 @@ public class StudentController { // This is a controller, controllers are used t
     @Autowired
     private StudentService studentService; // This is a dependency, it is used to handle business logic
     
-    @GetMapping("/") // This is a GET request, it is used to retrieve data from the server
+    @GetMapping("") // This is a GET request, it is used to retrieve data from the server
     public List<Student> getAllStudents() {
         return studentService.getAllStudents(); // This is a method from the StudentService, it is used to retrieve all the students from the database
     }
@@ -35,7 +37,7 @@ public class StudentController { // This is a controller, controllers are used t
         return studentService.getStudentById(id); // This is a method from the StudentService, it is used to retrieve a student by id from the database
     }
 
-    @PostMapping("/") // This is a POST request, it is used to send data to the server
+    @PostMapping("") // This is a POST request, it is used to send data to the server
     public Student createStudent(@RequestBody Student student) { // This is a request body, it is used to retrieve the student from the request body
         return studentService.createStudent(student); // This is a method from the StudentService, it is used to create a student in the database
     }

@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <script defer src="script.js"></script>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div class="wrapper">
+
+        
+        <div class="column col-left">
+            
+            <div class="container">
+                <h1>XML HTTP REQUEST</h1>
+            </div>
+
+            <div class="container">
+                <h2 class="title">GET text file</h2>
+                <p id="text-id">Change this</p>
+                <button onclick="loadTextFile()">change content</button>
+            </div>
+
+            <div class="container getById">
+                <h2 class="title">GET request (by id)</h2>
+                <div id="input-id">
+                    <input type="text" id="student-id">
+                    <button onclick="getStudentById()">get student</button>
+                </div>
+                <table id="students-table-id" ></table>
+            </div>
+
+            <div class="container">
+                <div id="students">
+                    <h2 class="title">POST request</h2>
+                    <form>
+                        <div class="form-row">
+                            <label for="firstName">First Name:</label>
+                            <input type="text" id="firstName">
+                        </div>
+                        <div class="form-row">
+                            <label for="lastName">Last Name:</label>
+                            <input type="text" id="lastName">
+                        </div>
+                        <div class="form-row">
+                            <label for="email">E-mail:</label>
+                            <input type="email" id="email">
+                        </div>
+                        <button type="button" onclick="postStudents()">post student</button>
+                        <button type="button" onclick="resetForm()">reset</button>
+                    </form>
+                </div>
+            </div>
+
+            <div class="container">
+                <h2 class="title">DELETE request (by id)</h2>
+                <div id="input-id">
+                    <input type="text" id="delete-student-id">
+                    <button onclick="deleteStudentById()">delete</button>
+                </div>
+            </div>
+
+            <div class="container">
+                <h2 class="title">Patch request (click on table)</h2>
+                <form>
+                    <div class="form-row">
+                    <p>id:</p>
+                    <p id="patch-id"></p>
+                    </div>
+                    <div class="form-row">
+                        <label for="patch-firstName">First Name:</label>
+                        <input type="text" id="patch-firstName">
+                    </div>
+                    <div class="form-row">
+                        <label for="patch-lastName">Last Name:</label>
+                        <input type="text" id="patch-lastName">
+                    </div>
+                    <div class="form-row">
+                        <label for="patch-email">E-mail:</label>
+                        <input type="email" id="patch-email">
+                    </div>
+                    <button type="button" onclick="patchStudentById()">patch</button>
+
+                </form>
+
+      
+            </div>
+
+        </div>
+        
+        <div class="column col-right">
+
+            <div class="container message-box">
+                <h2 id="message" class="">Hello</h2>
+            </div>
+
+            <div class="container">
+                <div id="students">
+                    <button onclick="getStudents()">get students</button>
+                    <table id="students-table" ></table>
+                </div>
+            </div>
+
+        </div>
+        
+        
+    
+
+    
+
+    
+
+
+    </div>
+    
+
+
+</body>
+</html>
