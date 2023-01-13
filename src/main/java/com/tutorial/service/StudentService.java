@@ -1,4 +1,4 @@
-package com.tutorial.services;
+package com.tutorial.service;
 
 import java.util.List;
 
@@ -8,8 +8,9 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 import org.springframework.web.bind.annotation.PathVariable;
 
-import com.tutorial.entities.Student;
-import com.tutorial.repositories.StudentRepository;
+import com.tutorial.dto.StudentRequest;
+import com.tutorial.entity.Student;
+import com.tutorial.repository.StudentRepository;
 
 import java.sql.*;
 
@@ -29,8 +30,15 @@ public class StudentService { // This is a service, services are used to handle 
         return studentRepository.findById(id).get(); // This is a method from the StudentRepository, it is used to retrieve a student by id from the database
     }
 
-    // POST
-    public Student createStudent(Student student) {
+    // // POST
+    // public Student createStudent(Student student) {
+    //     return studentRepository.save(student); // This is a method from the StudentRepository, it is used to create a student in the database
+    // }
+
+    // POST dto
+    public Student createStudent(StudentRequest studentRequest) {
+        Student student = Student.of(Long.valueOf(0), studentRequest.getFirstName(), studentRequest.getLastName(), studentRequest.getEmail());
+
         return studentRepository.save(student); // This is a method from the StudentRepository, it is used to create a student in the database
     }
 

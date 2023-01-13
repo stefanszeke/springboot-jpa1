@@ -108,3 +108,10 @@ table td,table th {
     padding: 0 10px;
     border-radius: 6px;
 }
+
+.green-message {
+    background-color: rgb(78, 197, 78);
+    color: white;
+    padding: 0 10px;
+    border-radius: 6px;
+}

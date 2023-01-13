@@ -101,7 +101,7 @@ function getStudentById() {
 // POST request
 function postStudents() {
     
-        if ([firstNameInput.value, lastNameInput.value, emailInput.value].includes("")) return setMessage("Please fill out all fields");
+        if ([firstNameInput.value, lastNameInput.value, emailInput.value].includes("")) return setMessage("Please fill out all fields", "red");
     
         const postStudent = new XMLHttpRequest();
     
@@ -109,12 +109,12 @@ function postStudents() {
         postStudent.setRequestHeader("Content-Type", "application/json");
     
         postStudent.onload = function() {
-            if (this.status == 200) {
+            if (this.status == 201) {
                 resetForm();
                 getStudents();
-                setMessage("Student added");
+                setMessage("Student added", "green");
             } else {
-                setMessage("Student not added");
+                setMessage("Student not added", "red");
             }
         }
 
@@ -134,18 +134,18 @@ function deleteStudentById() {
     
     const id = document.querySelector("#delete-student-id").value;
 
-    if ([id] == "") return setMessage("Please enter an ID number");
-    if(isNaN(id)) return setMessage("Please enter a valid ID number");
+    if ([id] == "") return setMessage("Please enter an ID number", "red");
+    if(isNaN(id)) return setMessage("Please enter a valid ID number", "red");
 
     deleteStudent.open("DELETE", `http://localhost:8080/api/v1/students/${id}`);
     deleteStudent.setRequestHeader("Content-Type", "application/json");
 
     deleteStudent.onload = function() {
         if (this.status == 200) {
-            setMessage("Student deleted");
+            setMessage("Student deleted", "green");
             getStudents();
         } else {
-            setMessage("Student not Found");
+            setMessage("Student not Found", "red");
         }
     }
 
@@ -278,8 +278,9 @@ function resetPatchForm() {
     patchId.innerHTML = "";
 }
 
-function setMessage(message) {
-    messageBox.classList.add("red-message");
+function setMessage(message, color) {
+    if(color == "red") {messageBox.classList.add("red-message")};
+    if(color == "green") {messageBox.classList.add("green-message")};
     messageBox.innerHTML = message;
 
     setTimeout(() => {
