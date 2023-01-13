@@ -1,6 +1,9 @@
 package com.tutorial.entities;
 
+import javax.validation.constraints.Size;
+
 import jakarta.persistence.*;
+import jakarta.validation.constraints.Email;
 
 
 @Entity // This tells Hibernate to make a table out of this class
@@ -12,12 +15,15 @@ public class Student {
     private Long id;
 
     @Column(name = "first_name")
+    @Size(min = 2, max = 30, message = "First name must be between 2 and 30 characters")
     private String firstName;
 
     @Column(name = "last_name")
+    @Size(min = 2, max = 30, message = "Last name must be between 2 and 30 characters")
     private String lastName;
 
     @Column(name = "email") // This is optional, because the column name is the same as the field name
+    @Email(message = "Please enter a valid email address")
     private String email;
 
     // public Student() {} // This is a default constructor, it is required by Hibernate
