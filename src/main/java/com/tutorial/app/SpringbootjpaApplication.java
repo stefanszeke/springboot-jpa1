@@ -10,8 +10,6 @@ import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 @ComponentScan({"com.tutorial.controller", "com.tutorial.service","com.tutorial.advice"}) // ComponentScan means that Spring will scan these packages for @Component annotations
 @EntityScan("com.tutorial.entity")	// EntityScan means that Spring will scan these packages for @Entity annotations
 @EnableJpaRepositories("com.tutorial.repository")	// EnableJpaRepositories means that Spring will scan these packages for @Repository annotations
-// scan dto:
-
 
 
 public class SpringbootjpaApplication {

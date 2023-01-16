@@ -2,6 +2,7 @@ const studentsTable = document.querySelector("#students-table");
 const studentTableId = document.querySelector("#students-table-id");
 
 const messageBox = document.querySelector("#message");
+const serverMessageBox = document.querySelector(".server-message-box");
 
 const firstNameInput = document.querySelector("#firstName");
 const lastNameInput = document.querySelector("#lastName");
@@ -64,8 +65,8 @@ function getStudentById() {
     
         const id = document.querySelector("#student-id").value;
     
-        if ([id] == "") return alert("Please enter an ID number");
-        if(isNaN(id)) return alert("Please enter a valid ID number");
+        if ([id] == "") return setMessage("Please enter an ID number", "red");
+        if(isNaN(id)) return setMessage("Please enter a valid ID number", "red");
 
         const getStudentById = new XMLHttpRequest();
     
@@ -115,6 +116,17 @@ function postStudents() {
                 setMessage("Student added", "green");
             } else {
                 setMessage("Student not added", "red");
+                res = JSON.parse(postStudent.responseText);
+
+                serverMessageBox.innerHTML = "";
+
+                Object.entries(res).map(([key, value]) => {
+                    let p = document.createElement("p");
+                    p.innerHTML = value;
+                    serverMessageBox.appendChild(p);
+                })
+
+
             }
         }
 
@@ -269,6 +281,7 @@ function resetForm() {
     firstNameInput.value = "";
     lastNameInput.value = "";
     emailInput.value= "";
+    serverMessageBox.innerHTML = "";
 }
 
 function resetPatchForm() {
@@ -285,6 +298,7 @@ function setMessage(message, color) {
 
     setTimeout(() => {
         messageBox.classList.remove("red-message");
+        messageBox.classList.remove("green-message");
         messageBox.innerHTML = "Hello";
     }, 3000);
     
