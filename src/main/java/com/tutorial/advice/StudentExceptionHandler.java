@@ -18,7 +18,7 @@ public class StudentExceptionHandler {
     public String handleInvalidArgument(MethodArgumentNotValidException e) {
         Map<String, String> errors = new HashMap<>();
         e.getBindingResult().getFieldErrors().forEach(error -> errors.put(error.getField(), error.getDefaultMessage()));
-        return "weee";
+        return "global exception handler: "+errors.toString();
     }
     
 }

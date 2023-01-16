@@ -59,13 +59,13 @@ public class StudentController { // This is a controller, controllers are used t
         return new ResponseEntity<>(studentService.createStudent(studentRequest), HttpStatus.CREATED); // This is a method from the StudentService, it is used to create a student in the database
     }
 
-    @ResponseStatus(HttpStatus.BAD_REQUEST)
-    @ExceptionHandler(MethodArgumentNotValidException.class)
-    public Map<String, String> handleInvalidArgument(MethodArgumentNotValidException e) {
-        Map<String, String> errors = new HashMap<>();
-        e.getBindingResult().getFieldErrors().forEach(error -> errors.put("bad request: "+error.getField(), error.getDefaultMessage()));
-        return errors;
-    }
+    // @ResponseStatus(HttpStatus.BAD_REQUEST)
+    // @ExceptionHandler(MethodArgumentNotValidException.class)
+    // public Map<String, String> handleInvalidArgument(MethodArgumentNotValidException e) {
+    //     Map<String, String> errors = new HashMap<>();
+    //     e.getBindingResult().getFieldErrors().forEach(error -> errors.put("bad request: "+error.getField(), error.getDefaultMessage()));
+    //     return errors;
+    // }
 
 
     // @PutMapping("/") // Update by id in request body
